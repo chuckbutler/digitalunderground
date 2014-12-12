@@ -1,0 +1,17 @@
+<h1>Listing videos</h1>
+
+<div class="video-grid">
+  <% @videos.each do |video| %>
+    <%= link_to 'Show', video %><span><strong><%= video.title %></span>
+  <% end %>
+
+
+    <a href="" class="grid_3">
+      <img src="images/assets/videos1.jpg" alt="#">
+      <span><strong>Avril Lopez</strong>Daredevil (video version)</span>
+    </a>
+
+
+<br>
+
+<%= link_to 'New Video', new_video_path %>

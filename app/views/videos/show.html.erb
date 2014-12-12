@@ -1,0 +1,16 @@
+<div class="post row-fluid clearfix">
+  <p id="notice"><%= notice %></p>
+
+
+  <h2><%= @v.title %></h2>
+
+  <%= @v.embed_code(iframe_attributes: { height: 500}).html_safe %>
+
+  <% if @v.description %>
+    <p><%= @v.description %></p>
+  <% end %>
+</div>
+
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

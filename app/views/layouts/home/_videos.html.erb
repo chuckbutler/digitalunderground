@@ -1,0 +1,19 @@
+<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+  <h4> Featured Videos </h4><span class="liner"></span>
+  <div class="widget-content row-fluid">
+    <div class="videos clearfix flexslider">
+      <ul class="slides">
+        <% @video.each do |v| %>
+        <li class="featured-video">
+          <%= link_to(v) do %>
+            <img src="<%= video_image(v) %>" alt="#">
+            <i class="icon-play-sign"></i>
+            <h3><%= video_title(v) %></h3>
+            <% end %>
+          </a>
+        </li><!-- slide -->
+        <% end %>
+      </ul>
+    </div>
+  </div><!-- widget content -->
+</div><!-- def block widget videos -->

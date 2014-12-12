@@ -1,0 +1,131 @@
+<!-- Setup audio player-->
+<script type="text/javascript">
+FWDMSPUtils.onReady(function(){
+  new FWDMSP({
+    //main settings
+    instanceName:"player1",
+    playlistsId:"playlists",
+    mainFolderPath:"content",
+    skinPath:"modern_skin_dark",
+    facebookAppId:"213684265480896",//required only if the facebook share button is used
+    showSoundCloudUserNameInTitle:"yes",
+    position:"bottom",
+    useDeepLinking:"yes",
+    rightClickContextMenu:"default",
+    showButtonsToolTips:"yes",
+    animate:"yes",
+    autoPlay:"no",
+    loop:"no",
+    shuffle:"no",
+    maxWidth:860,
+    volume:.40,
+    toolTipsButtonsHideDelay:1.5,
+    toolTipsButtonFontColor:"#333333",
+    //controller settings
+    showControllerByDefault:"no",
+    showThumbnail:"yes",
+    showSoundAnimation:"yes",
+    showLoopButton:"no",
+    showShuffleButton:"no",
+    showDownloadMp3Button:"no",
+    showBuyButton:"no",
+    showFacebookButton:"no",
+    expandBackground:"no",
+    titleColor:"#FFFFFF",
+    timeColor:"#888888",
+    //controller align and size settings (described in detail in the documentation!)
+    controllerHeight:85,
+    startSpaceBetweenButtons:10,
+    spaceBetweenButtons:10,
+    separatorOffsetOutSpace:4,
+    separatorOffsetInSpace:7,
+    lastButtonsOffsetTop:7,
+    allButtonsOffsetTopAndBottom:15,
+    titleBarOffsetTop:12,
+    mainScrubberOffsetTop:53,
+    spaceBetweenMainScrubberAndTime:6,
+    startTimeSpace:10,
+    scrubbersOffsetWidth:3,
+    scrubbersOffestTotalWidth:-6,
+    volumeButtonAndScrubberOffsetTop:46,
+    spaceBetweenVolumeButtonAndScrubber:5,
+    volumeScrubberOffestWidth:2,
+    scrubberOffsetBottom:6,
+    equlizerOffsetLeft:2,
+    //playlists window settings
+    showPlaylistsButtonAndPlaylists:"no",
+    showPlaylistsByDefault:"no",
+    thumbnailSelectedType:"opacity",
+    startAtPlaylist:0,
+    startAtTrack:0,
+    buttonsMargins:7,
+    thumbnailMaxWidth:330,
+    thumbnailMaxHeight:330,
+    horizontalSpaceBetweenThumbnails:44,
+    verticalSpaceBetweenThumbnails:44,
+    //playlist settings
+    showPlayListButtonAndPlaylist:"no",
+    showPlayListOnAndroid:"no",
+    showPlayListByDefault:"no",
+    showPlaylistItemPlayButton:"no",
+    showPlaylistItemDownloadButton:"no",
+    showPlaylistItemBuyButton:"no",
+    forceDisableDownloadButtonForPodcast:"yes",
+    forceDisableDownloadButtonForOfficialFM:"yes",
+    forceDisableDownloadButtonForFolder:"yes",
+    addScrollBarMouseWheelSupport:"yes",
+    showTracksNumbers:"yes",
+    playlistBackgroundColor:"#000000",
+    trackTitleNormalColor:"#888888",
+    trackTitleSelectedColor:"#FFFFFF",
+    trackDurationColor:"#888888",
+    maxPlaylistItems:100,
+    nrOfVisiblePlaylistItems:12,
+    trackTitleOffsetLeft:0,
+    playPauseButtonOffsetLeftAndRight:11,
+    durationOffsetRight:9,
+    downloadButtonOffsetRight:11,
+    scrollbarOffestWidth:7,
+    //search bar settings
+    showSearchBar:"yes",
+    showSortButtons:"no",
+    searchInputColor:"#888888",
+    searchBarHeight:42,
+    inputSearchTextOffsetTop:1,
+    inputSearchOffsetLeft:0,
+    //opener settings
+    openerAlignment:"right",
+    showOpener:"yes",
+    showOpenerPlayPauseButton:"yes",
+    openerEqulizerOffsetLeft:3,
+    openerEqulizerOffsetTop:-1,
+    //popup settings
+    showPopupButton:"no",
+    popupWindowBackgroundColor:"#878787",
+    popupWindowWidth:850,
+    popupWindowHeight:430
+  });
+});
+
+</script>
+
+
+  <!--  Playlists -->
+  <ul id="playlists" style="display:none;">
+    <li data-source="playlist1"  data-thumbnail-path="content/thumbnails/large1.jpg">
+      <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>My playlist 1</p>
+      <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
+      <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>This playlist is created using html elements.</p>
+    </li>
+  </ul>
+
+  <!--  HTML playlist -->
+  <ul id="playlist1" style="display:none;">
+    <li data-path="content/mp3/duconnect.mp3" data-thumbpath="content/thumbnails/small20.jpg" data-downloadable="no"></li>
+    <li data-path="http://108.166.161.213:9010/;.mp3" data-thumbpath="content/thumbnails/small21.jpg" data-downloadable="no" data-duration="00:00">
+      <p><span style="font-weight:bold; color:#FF0000;">Eleven Seven</span></p>
+    </li>
+    <li data-path="http://gol-the-9th.gclef320kbps.com:10056/;.mp3" data-thumbpath="content/thumbnails/small21.jpg" data-downloadable="no" data-duration="00:00">
+      <p><span style="font-weight:bold; color:#FF0000;">GOL</span></p>
+    </li>
+  </ul>
