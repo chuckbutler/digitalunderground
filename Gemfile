@@ -26,6 +26,7 @@ gem 'spring',        group: :development
 gem "mongoid", "~> 4.0.0"
 gem 'video_info'
 gem 'rails_admin'
+gem 'actionpack-page_caching'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
