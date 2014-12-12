@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  caches_page :show, :index
   layout "video"
   # GET /videos
   # GET /videos.json
@@ -11,7 +12,7 @@ class VideosController < ApplicationController
   # GET /videos/1.json
   def show
     video = Video.find(params[:id])
-    @v = VideoInfo.new(video.embed)
+    @v = VideoInfo.new(video.link)
   end
 
   # GET /videos/new
