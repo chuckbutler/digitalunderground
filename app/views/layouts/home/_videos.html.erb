@@ -3,7 +3,7 @@
   <div class="widget-content row-fluid">
     <div class="videos clearfix flexslider">
       <ul class="slides">
-        <% cache(action: 'recent', action_suffix: 'featured_videos') do %>
+        <% cache('featured_videos') do %>
           <% @video.each do |v| %>
           <li class="featured-video">
             <%= link_to(v) do %>
