@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :videos
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :videos, only: [:index, :show]
 
   get 'home/index'
   root 'home#index'
