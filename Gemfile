@@ -9,6 +9,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+gem 'rb-readline'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -27,6 +28,8 @@ gem "mongoid", "~> 4.0.0"
 gem 'video_info'
 gem 'rails_admin'
 gem 'actionpack-page_caching'
+gem 'devise'
+gem 'cancan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

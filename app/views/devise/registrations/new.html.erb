@@ -1,0 +1,38 @@
+<div class="posts">
+  <div class="def-block">
+    <div class="row row-fluid clearfix mbf">
+      <div class="span8">
+        <h1>Sign up</h1>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <h4>Email</h4>
+            <span class="liner"></span>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <h4>Password   <% if @validatable %><small style="color: #FFF;">(<%= @minimum_password_length %> characters minimum)</small><% end %></h4>
+            <span class="liner"></span>
+
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <div class="field">
+            <h4>Password Confirmation</h4>
+            <span class="liner"></span>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up", class: "tbutton large" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

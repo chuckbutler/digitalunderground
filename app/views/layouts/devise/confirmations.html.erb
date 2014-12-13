@@ -14,11 +14,11 @@
   <meta name="keywords" content="remix, music, dj, radio, live, mix, indie, amateur, underground radio">
 
   <!-- Styles -->
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
-  <link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-responsive.min.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/style.css" id="dark" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/js/rs-plugin/css/settings.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/styles/icons/icons.css" media="screen" />
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -41,13 +41,14 @@
   <div id="layout" class="full">
     <!-- login-widget -->
     <%= render "layouts/home/mainheader" %>
-    <% if current_page?('/') %>
-      <%= render "layouts/home/mainslider" %>
-    <% end %>
+    <div class="under_header">
+      <img src="/images/underheader.png" alt="#">
+    </div><!-- under header -->
 
-    <div class="page-content">
-      <%= yield %>
-    </div><!-- end page content -->
+    <div class="page-content back_to_up">
+      <div class="row clearfix mb">
+        <%= yield %>
+      </div><!-- end page content -->
     <%= render "layouts/shared/footer" %>
 
   </div><!-- end layout -->
@@ -55,46 +56,8 @@
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/theme20.js"></script>
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-  <script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-  <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-  <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-  <script type="text/javascript" src="js/jquery.jplayer.js"></script>
-  <script type="text/javascript" src="js/countdown.js"></script>
   <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-  <script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
-  <script type="text/javascript">
-    /* <![CDATA[ */
-    jQuery(document).ready(function() {
-      jQuery('.tp-banner').revolution({
-        delay:9000,
-        startwidth:1060,
-        startheight:610,
-        hideThumbs:10,
-        navigationType:"off",
-        fullWidth:"on",
-        forceFullWidth:"on"
-      });
-      jQuery("#event1").countdown({
-        date: "16 January 2015 18:00:00",
-        format: "on"
-      },
-      function() {
-        // callback function
-      });
-      jQuery("#event2").countdown({
-        date: "1 January 2015 12:00:00",
-        format: "on"
-      },
-      function() {
-        // callback function
-      });
-    });
-    /* ]]> */
-  </script>
-
-<%= render "layouts/shared/player" %>
 
 </body>
 </html>

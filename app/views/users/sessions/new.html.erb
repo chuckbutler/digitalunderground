@@ -1,0 +1,36 @@
+<div class="posts">
+  <div class="def-block">
+    <div class="row row-fluid clearfix mbf">
+      <div class="span8">
+      <h1>Log in</h1>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <h4>Email</h4>
+          <span class="liner"></span>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="field">
+          <h4>Password</h4>
+          <span class="liner"></span>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+
+        <div class="actions">
+          <%= f.submit " Log in ", class: "tbutton large" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
