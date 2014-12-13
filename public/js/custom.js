@@ -477,11 +477,11 @@ jQuery(document).ready(function ($) {
 	// IE7
 	if ($.browser.msie && $.browser.version <= 7) {
 		$(".breadcrumbIn li").append("<i class='icon-angle-right'></i>");
-		$(".jp-play").append("<i class='icon-play'></i>");
-		$(".jp-pause").append("<i class='icon-pause'></i>");
-		$(".jp-next").append("<i class='icon-forward'></i>");
-		$(".jp-previous").append("<i class='icon-backward'></i>");
-		$(".rating-level").append("<i class='icon-star'></i>");
+		// $(".jp-play").append("<i class='icon-play'></i>");
+		// $(".jp-pause").append("<i class='icon-pause'></i>");
+		// $(".jp-next").append("<i class='icon-forward'></i>");
+		// $(".jp-previous").append("<i class='icon-backward'></i>");
+		// $(".rating-level").append("<i class='icon-star'></i>");
 	}
 });
 /* jQuery Waypoints - Copyright (c) 2011-2013 Caleb Troughton - https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt */
