@@ -1,0 +1,8 @@
+development:
+  player: false
+
+test:
+  player: false
+
+production:
+  player: true

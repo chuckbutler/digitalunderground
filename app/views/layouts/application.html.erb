@@ -94,7 +94,9 @@
     /* ]]> */
   </script>
 
-<%= render "layouts/shared/player" %>
+<% if APP_CONFIG['player'] %>
+  <%= render "layouts/shared/player" %>
+<% end %>
 
 </body>
 </html>
