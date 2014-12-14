@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.where({active: true}).order_by(:created_at.desc)
   end
 
   # GET /videos/1
