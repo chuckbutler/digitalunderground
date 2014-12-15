@@ -1,5 +1,7 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps::Short
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -35,15 +37,18 @@ class User
    field :unlock_token,    type: String # Only if unlock strategy is :email or :both
    field :locked_at,       type: Time
 
+   # Ratings
+
 
    # Actual User Attributes that will span across the site
    field :admin, type: Boolean
+   field :role, type: String, default: 'dj'
 
    def admin?
      admin
    end
 
-
+   has_one :dj
 
    # hack to work around devise user serialization error
    # failed with error 10068: "invalid operator: $oid"

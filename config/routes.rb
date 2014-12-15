@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+
+  post '/rate' => 'rater#create', :as => 'rate'
+  resources :venues
+  resources :djs, :path => "talent"
+
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :videos, only: [:index, :show]
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
 
   get 'home/index'
   root 'home#index'

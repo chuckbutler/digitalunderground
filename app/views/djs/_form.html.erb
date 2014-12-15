@@ -1,0 +1,65 @@
+<%= form_for(@dj) do |f| %>
+  <% if @dj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dj.errors.count, "error") %> prohibited this dj from being saved:</h2>
+
+      <ul>
+      <% @dj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :experience %><br>
+    <%= f.text_field :experience %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br>
+    <%= f.text_field :genre %>
+  </div>
+  <div class="field">
+    <%= f.label :collab %><br>
+    <%= f.check_box :collab %>
+  </div>
+  <div class="field">
+    <%= f.label :software %><br>
+    <%= f.text_field :software %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.text_field :photo %>
+  </div>
+  <div class="field">
+    <%= f.label :soundcloud %><br>
+    <%= f.text_field :soundcloud %>
+  </div>
+  <div class="field">
+    <%= f.label :mixcloud %><br>
+    <%= f.text_field :mixcloud %>
+  </div>
+  <div class="field">
+    <%= f.label :youtube %><br>
+    <%= f.text_field :youtube %>
+  </div>
+  <div class="field">
+    <%= f.label :vimeo %><br>
+    <%= f.text_field :vimeo %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br>
+    <%= f.text_field :bio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

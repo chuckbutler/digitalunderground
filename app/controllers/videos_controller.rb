@@ -1,11 +1,12 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   caches_page :show, :index
-  layout "video"
+  layout "interior"
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.where({active: true}).order_by(:created_at.desc)
+    @videos = Video.where({active: true}).order_by(:created_at.desc).limit(12)
+    @featured = Video.where({active: true, feature: true}).order_by(:created_at.desc).limit(12)
   end
 
   # GET /videos/1

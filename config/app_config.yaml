@@ -1,5 +1,5 @@
 development:
-  player: false
+  player: true
 
 test:
   player: false

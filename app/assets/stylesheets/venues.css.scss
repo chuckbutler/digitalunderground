@@ -1,0 +1,19 @@
+// Place all the styles related to the venues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#staff-list {
+  height: auto;
+}
+
+#staff-list img {
+  height: 50px;
+  width: 50px;
+}
+#staff-list div {
+  margin-bottom: 10px;
+}
+
+#radioplay {
+  cursor: pointer;
+}

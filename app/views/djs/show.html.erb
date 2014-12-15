@@ -1,0 +1,150 @@
+
+<h4> DJ <%= @dj.name %> </h4><span class="liner"></span>
+
+<div class="products shop clearfix">
+  <div class="grid_12">
+    <div class="clearfix mbs">
+      <div class="grid_6">
+        <div class="postslider clearfix flexslider">
+          <ul class="slides">
+            <li><img src="<%= @dj.picture %>" alt="#"></li>
+          </ul>
+        </div>
+      </div><!-- grid6 -->
+
+      <div class="grid_6 djinfo">
+        <h3> <%= @dj.avatar_name %> </h3>
+        <% if @dj.feature %>
+          <h3 class="feature"><i class="icon-star-empty"> Featured Artist</i></h3>
+        <% end %>
+        <% if @dj.for_hire %>
+          <h5 class="forhire"><i class="icon-suitcase"> Available for hire</i></h5>
+        <% end %>
+        <% if @dj.collab %>
+          <h5 class="collab"><i class="icon-group"> Available for Collaboration</i></h5>
+        <% end %>
+        <% if @dj.location %>
+          <p class="location">Location: <%= @dj.location %></p>
+        <% end %>
+        <% if @dj.experience %>
+          <p class="experience">Experience: <%= @dj.experience %></p>
+        <% end %>
+        <% if @dj.software %>
+          <p class="experience">Broadcasts with: <%= @dj.software %></p>
+        <% end %>
+        <p class="rating">
+          <h5>Rating : </h5>
+        </p>
+
+
+      </div><!-- grid6 -->
+    </div><!-- clearfix -->
+
+    <div class="clearfix mbs">
+      <ul class="tabs">
+        <li><a href="#t-1" class="active">Bio</a></li>
+        <li><a href="#t-3">REVIEWS (2)</a></li>
+      </ul><!-- tabs -->
+
+      <ul class="tabs-content">
+        <li id="t-1" class="active">
+          <%= @dj.bio %>
+        </li><!-- tab content -->
+
+        <li id="t-3">
+          <ul class="showcomments clearfix">
+            <li class="clearfix">
+              <div class="thumb">
+                <a href="#"><img src="images/assets/alexander6.jpg" alt="#"></a>
+              </div>
+              <h5 class="entry-title"><a href="#" class="title">Jessica Alba</a><i>30 September, 2013</i>
+                <span class="date review">
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star-half-empty" title="Rated 5 out of 5"></i>
+                </p>
+              </h5>
+              <p>Nam vitae tellus lectus. Vivamus et ultrices urna. Morbi et elit odio, vel cursus sapien. Curabitur ac turpis et velit hendrerit commodo. Curabitur orci erat. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+            </li>
+            <li class="clearfix">
+              <div class="thumb">
+                <a href="#"><img src="images/assets/alexander4.jpg" alt="#"></a>
+              </div>
+              <h5 class="entry-title"><a href="#" class="title">John Doe</a><i>18 September, 2013</i>
+                <span class="date review">
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                </p>
+              </h5>
+              <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham. making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+            </li>
+          </ul>
+        </li><!-- tab content -->
+      </ul><!-- end tabs -->
+    </div><!-- clearfix -->
+
+  </div><!-- grid12 -->
+</div><!-- products -->
+
+</div><!-- def block -->
+</div><!-- span8 posts -->
+
+<div class="span4 sidebar">
+
+  <div class="def-block widget">
+    <h4> Social </h4><span class="liner"></span>
+    <div class="widget-content">
+      <% if @dj.facebook %>
+      <h5><i class="icon-facebook large"><a href="<%= @dj.facebook %>" target="_blank"> Like me on Facebook</a> </i></h5>
+      <% end %>
+      <% if @dj.twitter %>
+      <h5><i class="icon-twitter large"><a href="<%= @dj.twitter %>" target="_blank"> Follow me on twitter</a> </i></h5>
+      <% end %>
+      <% if @dj.soundcloud %>
+      <h5><i class="icon-cloud large"><a href="<%= @dj.soundcloud %>" target="_blank"> Fan me on Soundcloud</a> </i></h5>
+      <% end %>
+      <% if @dj.mixcloud %>
+      <h5><i class="icon-cloud large"><a href="<%= @dj.mixcloud %>" target="_blank"> Favorite me on Mixcloud</a> </i></h5>
+      <% end %>
+      <% if @dj.youtube %>
+      <h5><i class="icon-youtube large"><a href="<%= @dj.youtube %>" target="_blank"> Subscribe to my channel</a> </i></h5>
+      <% end %>
+    </div><!-- widget content -->
+  </div><!-- widget categories -->
+
+
+  <div class="def-block widget">
+    <div class="clearfix mbs">
+      <h4> Venues </h4><span class="liner"></span>
+      <div class="widget-content">
+        <% @dj.venues.each do |venue| %>
+        <div class="grid_4">
+          <ul class="tab-content-items">
+            <li class="clearfix">
+              <a class="post-thumbnail" href="/venues/<%= venue.id %>"><img width="50" height="50" src="<%= venue.picture %>" alt="<%= venue.name %>"></a>
+              <h3><a href="/venues/<%= venue.id %>"><%= venue.name %></a></h3>
+              <p class="rating"> <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-empty"></i> </p>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+    </div><!-- widget content -->
+  </div><!-- widget top sales -->
+
+  <div class="def-block widget">
+    <h4> Genres </h4><span class="liner"></span>
+    <div class="widget-content tags">
+      <% @dj.categories.each do |genre| %>
+        <span class="toptip"><i class="icon-tag"></i> <%= genre.name %> </span>
+      <% end %>
+    </div><!-- widget content -->
+  </div><!-- widget tags -->
+
+</div><!-- span4 sidebar -->

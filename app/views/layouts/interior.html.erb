@@ -35,7 +35,7 @@
   <![endif]-->
 
   <%= csrf_meta_tags %>
-
+  <%= render "layouts/shared/analytics" %>
 </head>
 <body id="fluidGridSystem">
   <div id="layout" class="full">
@@ -58,7 +58,12 @@
       </div><!-- row -->
 
       <div class="row row-fluid clearfix mbf">
-        <div class="posts">
+        <% if controller_name == "djs" or controller_name == "venues" and action_name == "show" %>
+          <div class="posts span8">
+        <% else %>
+          <div class="posts">
+        <% end %>
+
           <div class="def-block">
 
             <%= yield %>
@@ -76,18 +81,14 @@
   <script type="text/javascript" src="/js/jquery.min.js"></script>
   <script type="text/javascript" src="/js/theme20.js"></script>
   <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/js/jquery.jplayer.js"></script>
+  <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
   <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
   <script type="text/javascript" src="/js/twitter/jquery.tweet.js"></script>
   <script type="text/javascript" src="/js/custom.js"></script>
 
 
-
-
-
-  <!-- <%= yield %> -->
-
-  <%= render "layouts/shared/player" %>
-
+  <% if APP_CONFIG['player'] %>
+    <%= render "layouts/shared/player" %>
+  <% end %>
 </body>
 </html>

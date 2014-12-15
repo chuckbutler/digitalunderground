@@ -1,0 +1,172 @@
+
+<h4> <%= @venue.name %> </h4><span class="liner"></span>
+
+<div class="products shop clearfix">
+  <div class="grid_12">
+    <div class="clearfix mbs">
+      <div class="grid_6">
+        <div class="postslider clearfix flexslider">
+          <ul class="slides">
+            <li><img src="<%= @venue.picture %>" alt="<%= @venue.name %>"></li>
+          </ul>
+        </div>
+      </div><!-- grid6 -->
+
+      <div class="grid_6">
+        <h3> <%= @venue.tagline %> </h3>
+         <% if @venue.partner_program %>
+           <h5><i class="icon-star large"> Certified Partner </i></h5>
+         <% end %>
+         <% if @venue.radio %>
+          <h5><i id="radioplay" class="icon-play large" onclick="change_station(0, '<%= @venue.id %>')"> Tune in Live! </i></h5>
+         <% end %>
+         <% if @venue.slurl %>
+          <h5><i class="icon-map-marker large"><a href="<%= @venue.slurl %>" target="_blank"> Visit us on Second Life</a> </i></h5>
+         <% end %>
+         <% if @venue.facebook %>
+         <h5><i class="icon-facebook large"><a href="<%= @venue.facebook %>" target="_blank"> Like us on Facebook</a> </i></h5>
+         <% end %>
+      </div><!-- grid6 -->
+    </div><!-- clearfix -->
+
+    <div class="clearfix mbs">
+      <ul class="tabs">
+        <li><a href="#t-1" class="active">ABOUT</a></li>
+        <li><a href="#t-2">ADDITIONAL INFORMATION</a></li>
+        <li><a href="#t-3">REVIEWS</a></li>
+      </ul><!-- tabs -->
+
+      <ul class="tabs-content">
+        <li id="t-1" class="active">
+          <%= @venue.description %>
+        </li><!-- tab content -->
+
+        <li id="t-2">
+          <table class="shop_attributes">
+            <tbody>
+              <tr>
+                <th>Weight</th>
+                <td class="product_weight">1 kg</td>
+              </tr>
+              <tr>
+                <th>Dimensions</th>
+                <td class="product_dimensions">87 x 67 x 87 cm</td>
+              </tr>
+              <tr>
+                <th>Composition:</th>
+                <td><p>100% Acrylic</p></td>
+              </tr>
+              <tr>
+                <th>Size &amp; Fit:</th>
+                <td><p>This style comes in a free size for all.</p></td>
+              </tr>
+              <tr>
+                <th>Other Info:</th>
+                <td><p>Machine wash according to instructions on care label</p></td>
+              </tr>
+              <tr>
+                <th>Size</th>
+                <td><p>One Size Fits All, Large, Small, Medium, XSmall</p></td>
+              </tr>
+            </tbody>
+          </table>
+        </li><!-- tab content -->
+
+        <li id="t-3">
+          <ul class="showcomments clearfix">
+            <li class="clearfix">
+              <div class="thumb">
+                <a href="#"><img src="images/assets/alexander6.jpg" alt="#"></a>
+              </div>
+              <h5 class="entry-title"><a href="#" class="title">Jessica Alba</a><i>30 September, 2013</i>
+                <span class="date review">
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star-half-empty" title="Rated 5 out of 5"></i>
+                </p>
+              </h5>
+              <p>Nam vitae tellus lectus. Vivamus et ultrices urna. Morbi et elit odio, vel cursus sapien. Curabitur ac turpis et velit hendrerit commodo. Curabitur orci erat. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+            </li>
+            <li class="clearfix">
+              <div class="thumb">
+                <a href="#"><img src="images/assets/alexander4.jpg" alt="#"></a>
+              </div>
+              <h5 class="entry-title"><a href="#" class="title">John Doe</a><i>18 September, 2013</i>
+                <span class="date review">
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                  <i class="icon-star" title="Rated 5 out of 5"></i>
+                </p>
+              </h5>
+              <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham. making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+            </li>
+          </ul>
+        </li><!-- tab content -->
+      </ul><!-- end tabs -->
+    </div><!-- clearfix -->
+
+  </div><!-- grid12 -->
+</div><!-- products -->
+
+</div><!-- def block -->
+</div><!-- span8 posts -->
+
+<div class="span4 sidebar">
+
+  <div class="def-block widget">
+    <div class="clearfix mbs">
+
+      <h4> DJ's </h4><span class="liner"></span>
+      <div class="widget-content" id="staff-list">
+
+          <% @venue.djs.each do |dj| %>
+          <div class="grid_4">
+            <a href="/talent/<%= dj.id %>"><img src="<%= dj.picture %>" alt="<%= dj.name %>"><span><%= dj.name %></span></a>
+          </div>
+          <% end %>
+      </div><!-- widget content -->
+    </div>
+  </div><!-- widget categories -->
+
+  <div class="def-block widget">
+    <h4> Primary Genres </h4><span class="liner"></span>
+    <div class="widget-content">
+      <ul class="list">
+        <% @venue.categories.each do |cat| %>
+          <li><i class="icon-caret-right"></i> <%= cat.name %> </li>
+        <% end %>
+      </ul>
+    </div><!-- widget content -->
+  </div><!-- widget categories -->
+
+
+</div><!-- span4 sidebar -->
+
+<script type="text/javascript">
+function change_station(listid, stationid){
+  var playpos = $("[data-venue=" + stationid + "]").index();
+  player1.playSpecificTrack(listid, playpos)
+}
+</script>
+
+<!-- playlist -->
+<ul id="playlists" style="display:none;">
+  <% if @venue.radio %>
+    <li data-source="venue"  data-thumbnail-path="/content/thumbnails/large1.jpg">
+      <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>Default Playlist</p>
+      <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
+      <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>This playlist is created using html elements.</p>
+    </li>
+  <% end %>
+</ul>
+<!--  HTML playlist -->
+<% if @venue.radio %>
+<ul id="venue" style="display:none;">
+  <li data-path="<%= @venue.radio %>;.mp3" data-thumbpath="<%= @venue.picture %>" data-venue="<%= @venue.id %>" data-downloadable="no"><p><%= @venue.name %> Radio</p></li>
+</ul>
+<% end %>

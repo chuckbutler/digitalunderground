@@ -14,19 +14,19 @@
   <meta name="keywords" content="remix, music, dj, radio, live, mix, indie, amateur, underground radio">
 
   <!-- Styles -->
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="style.css" id="dark" media="screen" />
-  <link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="styles/icons/icons.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-responsive.min.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/style.css" id="dark" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/js/rs-plugin/css/settings.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/styles/icons/icons.css" media="screen" />
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- webplayer script include -->
   <%= render "layouts/shared/playerscript" %>
   <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
   <!--[if IE]>
   <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EmulateIE8; IE=EDGE" />
@@ -36,6 +36,7 @@
 
   <%= csrf_meta_tags %>
 
+  <%= render "layouts/shared/analytics" %>
 </head>
 <body id="fluidGridSystem">
   <div id="layout" class="full">
@@ -52,18 +53,17 @@
 
   </div><!-- end layout -->
   <!-- Scripts -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/theme20.js"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-  <script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-  <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-  <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-  <script type="text/javascript" src="js/jquery.jplayer.js"></script>
-  <script type="text/javascript" src="js/countdown.js"></script>
-  <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-  <script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
-  <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/theme20.js"></script>
+  <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+  <script type="text/javascript" src="/js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.prettyPhoto.js"></script>
+  <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
+  <script type="text/javascript" src="/js/countdown.js"></script>
+  <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript" src="/js/twitter/jquery.tweet.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
   <script type="text/javascript">
     /* <![CDATA[ */
     jQuery(document).ready(function() {

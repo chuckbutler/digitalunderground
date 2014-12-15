@@ -4,4 +4,5 @@ class Video
 
   field :link, type: String
   field :active, type: Boolean
+  field :feature, type: Boolean, default: false
 end

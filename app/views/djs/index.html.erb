@@ -1,0 +1,23 @@
+<h1>Talented Radio Artists</h1>
+
+<ul class="tabs">
+  <li><a href="#Featured" class="active"> Featured </a></li>
+  <li><a href="#Latest"> Latest </a></li>
+  <li><a href="#Favorites"> Favorites</a></li>
+</ul><!-- tabs -->
+<ul class="tabs-content">
+  <li id="Featured" class="active">
+    <div class="post no-border no-mp clearfix">
+      <ul class="tab-content-items">
+        <% @djs.each do |dj| %>
+        <li class="grid_6">
+          <a class="m-thumbnail" href="/talent/<%= dj.id %>"><img width="50" height="50" src="<%= dj.picture %>" alt="#"></a>
+          <h3><a href="#"><%= dj.name %></a></h3>
+          <span><%= dj.genres %></span>
+          <span> </span>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </li>
+</ul>

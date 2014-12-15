@@ -1,12 +1,32 @@
-<h1>Featured Videos</h1>
-
+<h1>Your Videos, Your Way</h1>
+  <ul class="tabs">
+    <li><a href="#Latest"> Latest Videos </a></li>
+    <li><a href="#Featured" class="active"> Featured Videos </a></li>
+  </ul><!-- tabs -->
 <div class="video-grid">
-  <% @videos.each do |video| %>
-    <%= link_to video, class: "grid_3" do %>
-    <% v = VideoInfo.new(video.link) %>
-      <img src="<%= v.thumbnail_medium %>">
-      <span><strong><%= v.title %></span>
-    <% end %>
-  <% end %>
+  <ul class="tabs-content">
+    <li id="Latest">
+      <div class="video-grid">
+        <% @videos.each do |video| %>
+            <%= link_to video, class: "grid_4" do %>
+              <% v = VideoInfo.new(video.link) %>
+              <img src="<%= v.thumbnail_small %>">
+              <span><strong><%= v.title %></strong></span>
+            <% end %>
+        <% end %>
+      </div><!-- video grid -->
+    </li><!-- tab content -->
 
-<br>
+    <li id="Featured" class="active">
+      <div class="video-grid">
+        <% @featured.each do |video| %>
+            <%= link_to video, class: "grid_4" do %>
+              <% v = VideoInfo.new(video.link) %>
+              <img src="<%= v.thumbnail_small %>">
+              <span><strong><%= v.title %></strong></span>
+            <% end %>
+        <% end %>
+      </div><!-- video grid -->
+    </li><!-- tab content -->
+  </ul><!-- end tabs -->
+</div>
