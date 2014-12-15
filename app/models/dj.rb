@@ -2,6 +2,7 @@ class Dj
   include Mongoid::Document
   include Mongoid::Timestamps::Short
 
+  # DJ Info
   field :name, type: String
   field :avatar_name, type: String
   field :experience, type: String
@@ -11,10 +12,11 @@ class Dj
   field :software, type: String
   field :photo, type: String
 
-
+  # Site Interaction
   field :for_hire, type: Mongoid::Boolean, default: true
   field :feature, type: Mongoid::Boolean
 
+  # Social Channels
   field :facebook, type: String
   field :twitter, type: String
   field :soundcloud, type: String
