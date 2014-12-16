@@ -43,7 +43,7 @@
     <div class="clearfix mbs">
       <ul class="tabs">
         <li><a href="#t-1" class="active">Bio</a></li>
-        <li><a href="#t-3">REVIEWS (2)</a></li>
+        <li><a href="#t-3">REVIEWS</a></li>
       </ul><!-- tabs -->
 
       <ul class="tabs-content">
@@ -51,11 +51,11 @@
           <%= @dj.bio %>
         </li><!-- tab content -->
 
-        <li id="t-3">
+    <!--     <li id="t-3">
           <ul class="showcomments clearfix">
             <li class="clearfix">
               <div class="thumb">
-                <a href="#"><img src="images/assets/alexander6.jpg" alt="#"></a>
+                <a href="#"><img src="/images/assets/alexander1.jpg" alt="#"></a>
               </div>
               <h5 class="entry-title"><a href="#" class="title">Jessica Alba</a><i>30 September, 2013</i>
                 <span class="date review">
@@ -71,7 +71,7 @@
             </li>
             <li class="clearfix">
               <div class="thumb">
-                <a href="#"><img src="images/assets/alexander4.jpg" alt="#"></a>
+                <a href="#"><img src="/images/assets/alexander1.jpg" alt="#"></a>
               </div>
               <h5 class="entry-title"><a href="#" class="title">John Doe</a><i>18 September, 2013</i>
                 <span class="date review">
@@ -100,20 +100,23 @@
   <div class="def-block widget">
     <h4> Social </h4><span class="liner"></span>
     <div class="widget-content">
-      <% if @dj.facebook %>
+      <% if not @dj.facebook.blank? %>
       <h5><i class="icon-facebook large"><a href="<%= @dj.facebook %>" target="_blank"> Like me on Facebook</a> </i></h5>
       <% end %>
-      <% if @dj.twitter %>
+      <% if not @dj.twitter.blank? %>
       <h5><i class="icon-twitter large"><a href="<%= @dj.twitter %>" target="_blank"> Follow me on twitter</a> </i></h5>
       <% end %>
-      <% if @dj.soundcloud %>
+      <% if not @dj.soundcloud.blank? %>
       <h5><i class="icon-cloud large"><a href="<%= @dj.soundcloud %>" target="_blank"> Fan me on Soundcloud</a> </i></h5>
       <% end %>
-      <% if @dj.mixcloud %>
+      <% if not @dj.mixcloud.blank? %>
       <h5><i class="icon-cloud large"><a href="<%= @dj.mixcloud %>" target="_blank"> Favorite me on Mixcloud</a> </i></h5>
       <% end %>
-      <% if @dj.youtube %>
+      <% if not @dj.youtube.blank? %>
       <h5><i class="icon-youtube large"><a href="<%= @dj.youtube %>" target="_blank"> Subscribe to my channel</a> </i></h5>
+      <% end %>
+      <% if @dj.no_social_life? %>
+      <h3> I have no social life. *le sigh* </h3>
       <% end %>
     </div><!-- widget content -->
   </div><!-- widget categories -->
@@ -134,6 +137,9 @@
           </ul>
         </div>
         <% end %>
+        <% if @dj.unplayed? %>
+          <h3>Zero Gigs Played</h3>
+        <% end %>
       </div>
     </div><!-- widget content -->
   </div><!-- widget top sales -->
@@ -143,6 +149,9 @@
     <div class="widget-content tags">
       <% @dj.categories.each do |genre| %>
         <span class="toptip"><i class="icon-tag"></i> <%= genre.name %> </span>
+      <% end %>
+      <% if @dj.categories.blank? %>
+        <h3> Experimental Bagpipe Music </h3>
       <% end %>
     </div><!-- widget content -->
   </div><!-- widget tags -->
