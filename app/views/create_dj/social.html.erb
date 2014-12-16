@@ -1,0 +1,46 @@
+
+<%= form_for @dj, :url => wizard_path, :method => :put do |f| %>
+<% if @dj.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@dj.errors.count, "error") %> prohibited this dj from being saved:</h2>
+
+  <ul>
+    <% @dj.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="clearfix">
+  <legend class="grid_12">
+    <h1>Link to your social network(s)</h1>
+  </legend>
+  <div class="field grid_4">
+    <h5> Facebook </h5>
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field grid_4">
+    <h5> Twitter </h5>
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field grid_4">
+    <h5> SoundCloud </h5>
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field grid_4">
+    <h5> MixCloud </h5>
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field grid_4">
+    <h5> Youtube </h5>
+    <%= f.text_field :facebook %>
+  </div>
+
+  <div class="field grid_12 controls">
+    <%= link_to 'previous', previous_wizard_path %>
+    <%= f.hidden_field :id %>
+    <%= f.submit "Next", class: "tbutton medium pull-right" %>
+  </div>
+</div>
+
+<% end %>

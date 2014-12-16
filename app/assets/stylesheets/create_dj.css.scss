@@ -1,0 +1,25 @@
+// Place all the styles related to the create_dj controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#avname.hidden {
+  display: block;
+  visibility: none;
+}
+
+#error_explanation {
+  color: red;
+  font-size: 12pt;
+}
+
+.controls{
+  margin-top: 50px;
+}
+
+textarea {
+  min-width: 300px;
+  min-height: 140px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 140px;
+}

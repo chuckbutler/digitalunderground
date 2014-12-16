@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
 
-  post '/rate' => 'rater#create', :as => 'rate'
-  resources :venues
-  resources :djs, :path => "talent"
+  # Primary data attributes
+  resources :venues, only: [:index, :show]
+  resources :djs, :path => "talent", only: [:index, :show, :edit, :update]
 
+  # wizard forms
+  resources :create_dj do
+    resources :build, controller: 'create_dj/build'
+  end
+
+  # primary
+  get 'home/index'
+  root 'home#index'
+
+
+  # Devise login routines
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
 
-  resources :videos, only: [:index, :show]
+  # resources :videos, only: [:index, :show]
 
+  # Administration interface
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-
-  get 'home/index'
-  root 'home#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

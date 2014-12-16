@@ -1,0 +1,61 @@
+<%= form_for @dj, :url => wizard_path, :method => :put do |f| %>
+<% if @dj.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@dj.errors.count, "error") %> prohibited this dj from being saved:</h2>
+
+  <ul>
+    <% @dj.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="clearfix">
+  <div class="field grid_4">
+    <h5> Name </h5>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field grid_2">
+    <h5> Secondlife User? </h5>
+    <%= f.check_box :secondlife, class: "js-switch" %>
+  </div>
+  <div id="avname" class="field hidden grid_4">
+    <h5> Avatar Name </h5>
+    <%= f.text_field :avatar_name %>
+  </div>
+  <div class="field grid_4">
+    <h5> Experience </h5>
+    <%= f.text_field :experience %>
+  </div>
+  <div class="field grid_4">
+    <h5> Location </h5>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field grid_12">
+    <%= f.hidden_field :id %>
+    <%= f.submit "Next", class: "tbutton medium pull-right" %>
+  </div>
+</div>
+
+<% end %>
+
+<link rel="stylesheet" href="/styles/switchery.css" />
+<script src="/js/switchery.js"></script>
+<script type="text/javascript">
+var elem = document.querySelector('.js-switch');
+var init = new Switchery(elem, { color: '#FCE363' });
+
+var changeCheckbox = document.querySelector('.js-switch');
+
+if(changeCheckbox.checked){
+  $('#avname').removeClass('hidden')
+}
+
+changeCheckbox.onchange = function() {
+  if(changeCheckbox.checked){
+    $('#avname').toggleClass('hidden')
+  } else {
+    $('#avname').toggleClass('hidden')
+  }
+};
+</script>
