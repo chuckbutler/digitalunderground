@@ -29,13 +29,6 @@
           <li class=""><a href="/">Home<span class="sub">start here</span></a></li>
           <li><a href="/talent">DJ's<span class="sub">The Talent Pool</span></a>
           <li><a href="/venues">Venues<span class="sub">Club Audio</span></a>
-          <!-- <li><a href="/mix">Mix<span class="sub">Featured Sets</span></a></li>
-          <li><a href="/videos">Videos<span class="sub">Better than MTV</span></a></li> -->
-            <!-- <ul>
-            <li><a href="gallery4.html">Gallery 4 Column</a></li>
-            <li><a href="gallery3.html">Gallery 3 Column</a></li>
-            <li><a href="gallery2.html">Gallery 2 Column</a></li>
-          </ul> -->
         </li>
         <!-- <li><a href="/reviews">Reviews<span class="sub">Read DJ Reviews</span></a></li> -->
         <% if user_signed_in? %>
@@ -44,7 +37,17 @@
               <% if current_user.admin? %>
               <li><a href="/admin">Admin</a></li>
               <% end %>
-              <li><a href="/users/edit">Edit</a></li>
+              <li><a href="/users/edit">Account Settings</a></li>
+              <% if current_user.dj %>
+                <li> <a href="#"><i class="icon-caret-right mi"> DJ Style</i></a>
+                  <ul>
+                    <li><%= link_to 'Show My Profile', controller: "djs", action: "show", id: current_user.dj.id %></li>
+                    <li><%= link_to 'Edit DJ Profile', controller: "djs", action: "edit", id: current_user.dj.id %></li>
+                  </ul>
+                </li>
+              <% else %>
+                <li><%= link_to 'Create DJ Profile', controller: "create_dj" %></li>
+              <% end %>
               <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
             </ul>
           </li>
