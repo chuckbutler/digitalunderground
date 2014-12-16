@@ -1,0 +1,18 @@
+<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+  <h4> Latest Venues </h4><span class="liner"></span>
+  <div class="widget-content row-fluid">
+    <div class="scroll-mp3" style="height: 220px;">
+      <div class="content">
+        <ul class="tab-content-items">
+          <% @latest.each do |venue| %>
+          <li class="clearfix">
+            <a class="m-thumbnail" href="/venues/<%= venue.id %>"><img width="50" height="50" src="<%= venue.picture %>" alt="<%= venue.name %>"></a>
+            <h3><a href="/venues/<%= venue.id %>"><%= venue.name %></a></h3>
+            <span> <%= venue.genres %> </span>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div><!-- widget content -->
+</div><!-- def block widget popular items -->

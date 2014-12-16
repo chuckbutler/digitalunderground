@@ -1,0 +1,18 @@
+<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+  <h4> Newest Talent </h4><span class="liner"></span>
+  <div class="widget-content row-fluid">
+    <div class="scroll-mp3" style="height: 220px;">
+      <div class="content">
+        <ul class="tab-content-items">
+          <% @djs.each do |dj| %>
+          <li class="clearfix">
+            <a class="m-thumbnail" href="/talent/<%= dj.id %>"><img width="50" height="50" src="<%= dj.picture %>" alt="<%= dj.name %>"></a>
+            <h3><a href="/talent/<%= dj.id %>"><%= dj.name %></a></h3>
+            <span> <%= dj.genres %> </span>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div><!-- widget content -->
+</div><!-- def block widget popular items -->
