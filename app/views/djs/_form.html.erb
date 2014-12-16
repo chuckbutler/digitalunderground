@@ -12,51 +12,49 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <h5> Name </h5>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :experience %><br>
+    <h5> Avatar Name </h5>
+    <%= f.text_field :avatar_name %>
+  </div>
+  <div class="field">
+    <h5> Experience </h5>
     <%= f.text_field :experience %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
+    <h5> Location </h5>
     <%= f.text_field :location %>
   </div>
+
   <div class="field">
-    <%= f.label :genre %><br>
-    <%= f.text_field :genre %>
+    <h5> Open to Collaboration? </h5>
+    <%= f.check_box :collab, class: "js-switch" %>
   </div>
   <div class="field">
-    <%= f.label :collab %><br>
-    <%= f.check_box :collab %>
-  </div>
-  <div class="field">
-    <%= f.label :software %><br>
+    <h5> What software do you use? </h5>
     <%= f.text_field :software %>
   </div>
   <div class="field">
-    <%= f.label :photo %><br>
+    <h5> Add a DJ Photo </h5>
     <%= f.text_field :photo %>
   </div>
   <div class="field">
-    <%= f.label :soundcloud %><br>
+    <h5> Soundcloud </h5>
     <%= f.text_field :soundcloud %>
   </div>
   <div class="field">
-    <%= f.label :mixcloud %><br>
+    <h5> Mixcloud </h5>
     <%= f.text_field :mixcloud %>
   </div>
   <div class="field">
-    <%= f.label :youtube %><br>
+    <h5> Youtube </h5>
     <%= f.text_field :youtube %>
   </div>
+
   <div class="field">
-    <%= f.label :vimeo %><br>
-    <%= f.text_field :vimeo %>
-  </div>
-  <div class="field">
-    <%= f.label :bio %><br>
+    <h5> DJ Bio </h5>
     <%= f.text_field :bio %>
   </div>
   <div class="actions">
