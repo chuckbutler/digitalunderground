@@ -35,27 +35,3 @@
     </div>
   </li>
 </ul>
-
-<script type="text/javascript">
-  function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-      vars[key] = value;
-    });
-    return vars;
-  }
-
-
-  function change_station(listid, stationid){
-    if(getUrlVars()['debug']){ var debugmode = true }
-    var playlist = $("[data-source=" + listid + "]").index()
-    var playpos = $("[data-venue=" + stationid + "]").index();
-    if(debugmode){
-      console.log("Listid: " + listid)
-      console.log("Playlist: " +playlist)
-      console.log("Sending Player: " + playlist + "," + playpos)
-      console.log("Send this output to the developer: " + document.URL)
-    }
-    player1.playSpecificTrack(playlist, playpos)
-  }
-</script>
