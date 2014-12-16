@@ -13,7 +13,7 @@
         <li class="grid_6">
           <a class="m-thumbnail" href=""><img width="50" height="50" src="<%= venue.picture %>" alt="#"></a>
           <h3><a href="/venues/<%= venue.id %>"><%= venue.name %></a></h3>
-          <span> <% if venue.radio %><i class="icon-play"  onclick="change_station(0, '<%= venue.id %>')"> play</i><% end %> </span>
+          <span> <% if venue.radio %><i class="icon-play"  onclick="change_station('featured', '<%= venue.id %>')"> play</i><% end %> </span>
           <span> <%= venue.genres(true) %> </span>
         </li>
         <% end %>
@@ -27,7 +27,7 @@
         <li class="grid_6">
           <a class="m-thumbnail" href=""><img width="50" height="50" src="<%= venue.picture %>" alt="#"></a>
           <h3><a href="/venues/<%= venue.id %>"><%= venue.name %></a></h3>
-          <span> <% if venue.radio %><i class="icon-play"  onclick="change_station(1, '<%= venue.id %>')"> play</i><% end %> </span>
+          <span> <% if venue.radio %><i class="icon-play"  onclick="change_station('latest', '<%= venue.id %>')"> play</i><% end %> </span>
           <span> <%= venue.genres(true) %> </span>
         </li>
         <% end %>
@@ -37,43 +37,25 @@
 </ul>
 
 <script type="text/javascript">
+  function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+      vars[key] = value;
+    });
+    return vars;
+  }
+
+
   function change_station(listid, stationid){
+    if(getUrlVars()['debug']){ var debugmode = true }
+    var playlist = $("[data-source=" + listid + "]").index()
     var playpos = $("[data-venue=" + stationid + "]").index();
-    player1.playSpecificTrack(listid, playpos)
+    if(debugmode){
+      console.log("Listid: " + listid)
+      console.log("Playlist: " +playlist)
+      console.log("Sending Player: " + playlist + "," + playpos)
+      console.log("Send this output to the developer: " + document.URL)
+    }
+    player1.playSpecificTrack(playlist, playpos)
   }
 </script>
-
-<!--  Playlists -->
-<ul id="playlists" style="display:none;">
-  <li data-source="featured"  data-thumbnail-path="/content/thumbnails/large1.jpg">
-    <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>Default Playlist</p>
-    <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
-    <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>This playlist is created using html elements.</p>
-  </li>
-  <li data-source="latest"  data-thumbnail-path="/content/thumbnails/large1.jpg">
-    <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>Default Playlist</p>
-    <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
-    <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>This playlist is created using html elements.</p>
-  </li>
-  <li data-source="favorites"  data-thumbnail-path="/content/thumbnails/large1.jpg">
-    <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>Default Playlist</p>
-    <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
-    <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>This playlist is created using html elements.</p>
-  </li>
-</ul>
-
-<!--  HTML playlist -->
-<ul id="featured" style="display:none;">
-  <% @featured.each do |venue| %>
-    <% if venue.radio %>
-      <li data-path="<%= venue.radio %>;.mp3" data-thumbpath="<%= venue.photo %>" data-venue="<%= venue.id %>" data-downloadable="no"><p><%= venue.name %> Radio</p></li>
-    <% end %>
-  <% end %>
-</ul>
-<ul id="latest" style="display:none;">
-  <% @latest.each do |venue| %>
-    <% if venue.radio %>
-      <li data-path="<%= venue.radio %>;.mp3" data-thumbpath="<%= venue.photo %>" data-venue="<%= venue.id %>" data-downloadable="no"><p><%= venue.name %> Radio</p></li>
-    <% end %>
-  <% end %>
-</ul>
