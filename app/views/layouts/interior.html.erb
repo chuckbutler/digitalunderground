@@ -86,7 +86,8 @@
   <script type="text/javascript" src="/js/twitter/jquery.tweet.js"></script>
   <script type="text/javascript" src="/js/custom.js"></script>
 
-
+  <%= render 'layouts/player/playlist' %>
+  
   <% if APP_CONFIG['player'] %>
     <%= render "layouts/shared/player" %>
   <% end %>

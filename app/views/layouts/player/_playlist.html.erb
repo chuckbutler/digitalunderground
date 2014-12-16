@@ -1,0 +1,74 @@
+
+
+<script type="text/javascript">
+function getUrlVars() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    vars[key] = value;
+  });
+  return vars;
+}
+
+
+function change_station(listid, stationid){
+  if(getUrlVars()['debug']){ var debugmode = true }
+    var playlist = $("[data-source=" + listid + "]").index()
+    var playpos = $("[data-venue=" + stationid + "]").index();
+    if(debugmode){
+      console.log("Listid: " + listid)
+      console.log("Playlist: " +playlist)
+      console.log("Sending Player: " + playlist + "," + playpos)
+      console.log("Send this output to the developer: " + document.URL)
+    }
+    player1.playSpecificTrack(playlist, playpos);
+    setTimeout(player1.play(),3000);
+  }
+  </script>
+
+
+
+<!--  Playlists -->
+<ul id="playlists" style="display:none;">
+  <li data-source="official"  data-thumbnail-path="/images/radio/official.png">
+    <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>Official Digital Underground Radio</p>
+    <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
+    <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>Digital Undergrounds Own Blend of Beats</p>
+  </li>
+<% if @featured %>
+  <li data-source="featured"  data-thumbnail-path="/images/radio/featured.png">
+    <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>Featured Stations</p>
+    <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
+    <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>Hand Selected Radio for your Enjoyment</p>
+  </li>
+<% end %>
+<% if @latest %>
+  <li data-source="latest"  data-thumbnail-path="/images/radio/latest.png">
+    <p class="minimalDarkCategoriesTitle"><span class="bold">Title: </span>Latest Stations</p>
+    <p class="minimalDarkCategoriesType"><span class="bold">Type: </span><span class="minimalDarkCategoriesTypeIn">HTML</span></p>
+    <p class="minimalDarkCategoriesDescription"><span class="bold">Description: </span>Fresh Meat</p>
+  </li>
+<% end %>
+</ul>
+
+<!--  HTML playlist -->
+<ul id="official" style="display:none;">
+  <li data-path="http://stream.juju.rocks:8000/;.mp3" data-thumbpath="/images/radio/official.png" data-venue="officialradio" data-downloadable="no"><p>Official Digital Underground Radio</p></li>
+</ul>
+<% if @featured %>
+<ul id="featured" style="display:none;">
+  <% @featured.each do |venue| %>
+  <% if venue.radio %>
+  <li data-path="<%= venue.radio %>;.mp3" data-thumbpath="<%= venue.photo %>" data-venue="<%= venue.id %>" data-downloadable="no"><p><%= venue.name %> Radio</p></li>
+  <% end %>
+  <% end %>
+</ul>
+<% end %>
+<% if @latest %>
+<ul id="latest" style="display:none;">
+  <% @latest.each do |venue| %>
+  <% if venue.radio %>
+  <li data-path="<%= venue.radio %>;.mp3" data-thumbpath="<%= venue.photo %>" data-venue="<%= venue.id %>" data-downloadable="no"><p><%= venue.name %> Radio</p></li>
+  <% end %>
+  <% end %>
+</ul>
+<% end %>
