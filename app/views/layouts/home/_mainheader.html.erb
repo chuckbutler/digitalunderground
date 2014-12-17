@@ -48,6 +48,15 @@
               <% else %>
                 <li><%= link_to 'Create DJ Profile', controller: "create_dj" %></li>
               <% end %>
+              <% if current_user.venue %>
+              <li> <a href="#"><i class="icon-caret-right mi"> Club Management</i></a>
+                <ul>
+                  <li><%= link_to current_user.venue.name, controller: "venues", action: "show", id: current_user.venue.id %></li>
+                </ul>
+              </li>
+              <% else %>
+              <li><%= link_to 'Create Venue', controller: "create_venue" %></li>
+              <% end %>
               <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
             </ul>
           </li>
