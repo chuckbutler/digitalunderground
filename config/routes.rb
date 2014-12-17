@@ -9,6 +9,12 @@ Rails.application.routes.draw do
     resources :build, controller: 'create_dj/build'
   end
 
+  # wizard forms
+  resources :create_venue do
+    resources :build, controller: 'create_venue/build'
+  end
+
+
   # primary
   get 'home/index'
   root 'home#index'

@@ -1,0 +1,43 @@
+<%= form_for @venue, :url => wizard_path, :method => :put do |f| %>
+<% if @venue.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this dj from being saved:</h2>
+
+  <ul>
+    <% @venue.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="clearfix">
+  <div class="field grid_4">
+    <h5> Name </h5>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field grid_4">
+    <h5> tagline </h5>
+    <%= f.text_field :tagline %>
+  </div>
+  <div class="field grid_4">
+    <h5> radio </h5>
+    <%= f.text_field :radio %>
+  </div>
+  <div class="field grid_4">
+    <h5> slurl </h5>
+    <%= f.text_field :slurl %>
+  </div>
+  <div class="field grid_4">
+    <h5> facebook </h5>
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field grid_12">
+    <h5> description </h5>
+    <%= f.text_area :description, cols: 50, rows: 5  %>
+  </div>
+  <div class="field grid_12">
+    <%= f.hidden_field :id %>
+    <%= f.submit "Next", class: "tbutton medium pull-right" %>
+  </div>
+</div>
+<% end %>

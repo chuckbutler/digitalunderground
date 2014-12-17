@@ -1,0 +1,43 @@
+<%= form_for @venue, :url => wizard_path, :method => :put do |f| %>
+<% if @venue.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this dj from being saved:</h2>
+
+  <ul>
+    <% @venue.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="clearfix">
+  <div class="field grid_4">
+    <h5> Sim Rating <small>G/A/M</small> </h5>
+    <%= f.text_field :sim_rating %>
+  </div>
+  <div class="field grid_4">
+    <h5> Are you hiring? </h5>
+    <%= f.check_box :hiring, class: "js-switch" %>
+  </div>
+  <div class="field grid_12">
+    <%= f.hidden_field :id %>
+    <%= link_to 'previous', previous_wizard_path %>
+    
+    <%= f.submit "Next", class: "tbutton medium pull-right" %>
+  </div>
+</div>
+<% end %>
+
+
+<link rel="stylesheet" href="/styles/switchery.css" />
+<script src="/js/switchery.js"></script>
+<script type="text/javascript">
+  var elem = document.querySelector('.js-switch');
+  var init = new Switchery(elem, { color: '#FCE363' });
+
+  var changeCheckbox = document.querySelector('.js-switch');
+
+  if(changeCheckbox.checked){
+    $('#avname').removeClass('hidden')
+  }
+</script>
