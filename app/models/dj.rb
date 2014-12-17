@@ -47,7 +47,7 @@ class Dj
   end
 
   def active?
-    status == true
+    status == 'active'
   end
 
 

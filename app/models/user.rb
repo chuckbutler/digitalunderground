@@ -42,13 +42,16 @@ class User
 
    # Actual User Attributes that will span across the site
    field :admin, type: Boolean
-   field :role, type: String, default: 'dj'
+   field :role, type: String, default: 'user'
+
+   has_one :dj
+   has_one :venue
 
    def admin?
      admin
    end
 
-   has_one :dj
+
 
    # hack to work around devise user serialization error
    # failed with error 10068: "invalid operator: $oid"

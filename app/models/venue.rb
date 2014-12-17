@@ -6,18 +6,21 @@ class Venue
   field :slurl, type: String
   field :description, type: String
   field :radio, type: String
-  field :partner_program, type: Mongoid::Boolean
   field :photo, type: String
   field :facebook, type: String
   field :tagline, type: String, default: "Here to party!"
 
-  field :active, type: Mongoid::Boolean, default: true
-  field :feature, type: Mongoid::Boolean, default: false
 
 
   # additional information
   field :sim_rating, type: String
   field :hiring, type: Mongoid::Boolean, default: false
+
+  # internal
+  field :active, type: Mongoid::Boolean, default: true
+  field :status, type: String, default: 'new'
+  field :feature, type: Mongoid::Boolean, default: false
+  field :partner_program, type: Mongoid::Boolean
 
   #TODO Job Listings
   #TODO Business hours
@@ -28,6 +31,21 @@ class Venue
   has_and_belongs_to_many :djs
   has_many :categories
 
+
+  # validations
+  validates :name, :description, :radio, :tagline, presence: true, if: :active_or_basic?
+
+  # State machine
+
+  def active_or_basic?
+    status.include?('basic') || active?
+  end
+
+  def active?
+    status == 'active'
+  end
+
+  # Helpers
   def genres(short=false)
     if self.categories.count > 0
       list = []
