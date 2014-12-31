@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_filter :get_site_config
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   caches_page :show, :index
   layout "interior"

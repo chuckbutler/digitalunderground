@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  before_filter :get_site_config
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   layout "interior"
   respond_to :html

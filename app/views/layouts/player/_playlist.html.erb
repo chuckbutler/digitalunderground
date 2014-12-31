@@ -52,7 +52,7 @@ function change_station(listid, stationid){
 
 <!--  HTML playlist -->
 <ul id="official" style="display:none;">
-  <li data-path="http://stream.juju.rocks:8000/;.mp3" data-thumbpath="/images/radio/official.png" data-venue="officialradio" data-downloadable="no"><p>Official Digital Underground Radio</p></li>
+  <li data-path="<%= @sitecfg.primaryradio %>;.mp3" data-thumbpath="/images/radio/official.png" data-venue="officialradio" data-downloadable="no"><p>Official Digital Underground Radio</p></li>
 </ul>
 <% if @featured %>
 <ul id="featured" style="display:none;">
