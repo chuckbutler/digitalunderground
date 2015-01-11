@@ -9,7 +9,7 @@ development:
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - localhost:27017
+        - <%= ENV["MONGO_HOST"] || 'db' %>:<%= ENV["MONGO_PORT"] || '27017' %>
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -72,7 +72,7 @@ production:
     default:
       database: <%= ENV["MONGO_DB"] || 'digital_underground_prod' %>
       hosts:
-        - <%= ENV["MONGO_HOST"] || 'localhost' %>:<%= ENV["MONGO_PORT"] || '27017' %>
+        - <%= ENV["MONGO_HOST"] || 'db' %>:<%= ENV["MONGO_PORT"] || '27017' %>
       options:
         read: primary
         max_retries: 20
