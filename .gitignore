@@ -16,3 +16,4 @@
 /tmp
 charm_deploy.yaml
 data/*
+fig.yml
