@@ -51,9 +51,11 @@ function change_station(listid, stationid){
 </ul>
 
 <!--  HTML playlist -->
+<% if @sitecfg %>
 <ul id="official" style="display:none;">
   <li data-path="<%= @sitecfg.primaryradio %>;.mp3" data-thumbpath="/images/radio/official.png" data-venue="officialradio" data-downloadable="no"><p>Official Digital Underground Radio</p></li>
 </ul>
+<% end %>
 <% if @featured %>
 <ul id="featured" style="display:none;">
   <% @featured.each do |venue| %>
